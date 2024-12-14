@@ -1,7 +1,7 @@
 # Campus Events Management System
 
 ## Project Overview
-This is a web app called the Campus Events Management System. It allows users to view, register for, and manage campus events. Users can filter events by type and see them in a calendar view.
+This is a web app called the Campus Events Management System. It allows users to view and manage campus events. Users can filter events by type and see them in a calendar view.
 
 ## Deployment Link
 Live version: [Campus Events Management System](https://event4camp.vercel.app/)
@@ -16,15 +16,9 @@ Test accounts:
   - Password: test
 
 ## Feature Checklist
-- [x] User Registration
 - [x] User Login
 - [x] View Upcoming Events
-- [x] Register for Events
-- [x] Admin Panel for Event Management
-- [x] Calendar View for Events
-- [x] Event Filtering by Type
-- [x] Event Details Page
-- [x] Responsive Design
+- [x] Create Events (Admin Only)
 
 ## Installation Instructions
 
@@ -40,13 +34,11 @@ To get the project on your local machine, you need to clone both the frontend an
    ```bash
    git clone https://github.com/yourusername/campusManagerFrontend.git
    ```
-   (Replace `yourusername` with your GitHub username)
 
 2. **Clone the Backend Repository:**
    ```bash
    git clone https://github.com/yourusername/campusmanagerBackend.git
    ```
-   (Replace `yourusername` with your GitHub username)
 
 ### Step 3: Set Up the Frontend
 
@@ -93,19 +85,87 @@ To get the project on your local machine, you need to clone both the frontend an
 5. The backend will typically run on `http://localhost:5000` (or the port specified in your configuration).
 
 ## API Documentation
-Screenshots of Postman API tests for the endpoints used in the app:
 
-- **Get All Events Endpoint:**
-  ![Get All Events](public/screenshots/get_all_events.png)  <!-- Replace with the actual path to your screenshot -->
+### User Routes
+1. **User Login**
+   - **Method:** POST
+   - **URL:** `http://localhost:5000/api/users/login`
+   - **Body (JSON):**
+     ```json
+     {
+       "email": "example@gmail.com",
+       "password": "test"
+     }
+     ```
 
-- **Register for Event Endpoint:**
-  ![Register for Event](public/screenshots/register_event.png)  <!-- Replace with the actual path to your screenshot -->
+### Event Routes
+1. **Get All Events**
+   - **Method:** GET
+   - **URL:** `http://localhost:5000/api/events`
 
-- **User Registration Endpoint:**
-  ![User Registration](public/screenshots/user_registration.png)  <!-- Replace with the actual path to your screenshot -->
+2. **Create Event (Admin Only)**
+   - **Method:** POST
+   - **URL:** `http://localhost:5000/api/events`
+   - **Body (JSON):**
+     ```json
+     {
+       "name": "Sample Event",
+       "date": "2023-12-01",
+       "time": "10:00",
+       "type": "workshop",
+       "location": "Room 101",
+       "description": "This is a sample event.",
+       "capacity": 100
+     }
+     ```
+   - **Headers:**
+     - `Authorization: Bearer <admin_token>`
 
-- **User Login Endpoint:**
-  ![User Login](public/screenshots/user_login.png)  <!-- Replace with the actual path to your screenshot -->
+## Screenshots of API Tests
+Here are screenshots of the tests performed in Postman:
 
-- **Get User Profile Endpoint:**
-  ![Get User Profile](public/screenshots/get_user_profile.png)  <!-- Replace with the actual path to your screenshot -->
+- **User Login:**
+  ![User Login](public/screenshots/logingin.png)   
+
+- **View Events:**
+  ![Get All Events](public/screenshots/viewingeventspng)   
+
+- **Create Event:**
+  ![Create Event](public/screenshots/creatingevent.png)   
+
+## How to Create an Event
+
+1. **Create a New Request:**
+   - Set the method to **POST**.
+   - Enter the URL:
+     ```
+     http://localhost:5000/api/events
+     ```
+
+2. **Go to the Body Tab:**
+   - Select **raw** and choose **JSON** from the dropdown.
+
+3. **Enter the JSON Data:**
+   - Paste the following JSON body:
+   ```json
+   {
+     "name": "Sample Event",
+     "date": "2023-12-01",
+     "time": "10:00",
+     "type": "workshop",
+     "location": "Room 101",
+     "description": "This is a sample event.",
+     "capacity": 100
+   }
+   ```
+
+4. **Go to the Headers Tab:**
+   - Add:
+     - **Key:** `Authorization`
+     - **Value:** `Bearer <admin_token>` (replace `<admin_token>` with the actual token)
+
+5. **Click "Send":**
+   - After setting everything up, click the **"Send"** button.
+
+6. **Check the Response:**
+   - You should receive a response indicating that the event was created successfully.
