@@ -32,12 +32,12 @@ To get the project on your local machine, you need to clone both the frontend an
 
 1. **Clone the Frontend Repository:**
    ```bash
-   git clone https://github.com/yourusername/campusManagerFrontend.git
+   git clone https://github.com/Latifpro108108/campusManagerFrontend.git
    ```
 
 2. **Clone the Backend Repository:**
    ```bash
-   git clone https://github.com/yourusername/campusmanagerBackend.git
+   git clone https://github.com/Latifpro108108/campusmanagerBackend.git
    ```
 
 ### Step 3: Set Up the Frontend

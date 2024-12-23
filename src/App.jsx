@@ -1,4 +1,3 @@
-   // src/App.jsx
    import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
    import Header from './components/Header';
    import Home from './pages/Home';
@@ -9,7 +8,7 @@
    import AdminRegistrations from './pages/AdminRegistrations';
    import Profile from './pages/Profile';
    import CalendarView from './pages/CalendarView';
-   import EventDetails from './pages/EventDetails'; // Import the new component
+   import EventDetails from './pages/EventDetails'; 
    import { useAuth } from './context/AuthContext';
    import ProtectedRoute from './components/ProtectedRoute';
    import AdminRoute from './components/AdminRoute';
