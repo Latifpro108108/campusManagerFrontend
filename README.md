@@ -128,10 +128,10 @@ Here are screenshots of the tests performed in Postman:
   ![User Login](public/screenshots/logingin.png)   
 
 - **View Events:**
-  ![Get All Events](public/screenshots/viewingeventspng)   
+  ![Get All Events](public/screenshots/viewingevents.png)   
 
 - **Create Event:**
-  ![Create Event](public/screenshots/creatingevents.png)  
+  ![Create Event](public/screenshots/creatingevent.png)   
 
 ## How to Create an Event
 
